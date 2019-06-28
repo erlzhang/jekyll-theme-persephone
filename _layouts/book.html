@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="book sidebar-right">
+  {%- include header.html -%}
+  <div class="book__cover">
+    <img src="{{ page.img | img_url_prefix }}" class="book__img" alt="{{ page.title }}"/>
+  </div>
+  <div class="book__content">
+    <div class="book__content_inner">
+      <h1 class="book__title">{{ page.title }}</h1>
+      <div class="book__desc">
+        {{ content }}
+      </div>
+      {%- if page.next -%}
+      <a href="{{ page.next.url | relative_url }}" class="book__more">
+        <div class="book__icon">
+          <svg width="80" height="80">
+            <circle class="circle-progress" r="36" cy="40" cx="40"  stroke-linejoin="round" stroke-linecap="round" />
+          </svg>
+          <span class="book__icon_arrow"></span>
+        </div>
+      </a>
+      {%- endif -%}
+      </div>
+    {%- include footer.html -%}
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<main class="slide" id="sectionContainer">
+  {%- assign count = site.theme_setting.slides_count | default: 4 -%}
+  {%- for book in site.books limit: count -%}
+    {%- assign is_odd = forloop.index | modulo: 2 -%}
+    <div class="slide__section">
+      {%- if is_odd == 1 -%}
+      <div class="slide__img">
+        <a href="{{ book.url | relative_url }}" class="slide__link" title="{{ book.title }}"></a>
+        <div class="slide__img_placehold"></div>
+        <img src="{{ book.img | img_url_prefix }}" class="slide__img_entity" alt="{{ book.title }}">
+      </div>
+      {%- endif -%}
+      <div class="slide__text {% if is_odd == 1 %}slide__text_right{% else %}slide__text_left{% endif %}">
+        <a href="{{ book.url | relative_url }}" class="slide__link" title="{{ book.title }}"></a>
+        <div class="slide__title">
+          <div class="slide__title_inner">
+            <h2 class="slide__title_text">{{ book.title }}</h2>
+          </div>
+         </div>
+        <div class="slide__time">
+          <div class="slide__time_inner">
+            <p class="slide__time_text">{{ book.date }}</p>
+          </div>
+        </div>
+      </div>
+      {%- if is_odd == 0 -%}
+      <div class="slide__img">
+        <a href="{{ book.url | relative_url }}" class="slide__link" title="{{ book.title }}"></a>
+        <div class="slide__img_placehold"></div>
+        <img src="{{ book.img | img_url_prefix }}" alt="{{ book.title }}">
+      </div>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</main>
+
+<ul class="slide__controls">
+  <div class="slide__control__icon slide__control_top" id="prevBtn">
+    <svg width="40" height="40">
+      <circle class="circle-progress" r="18" cy="20" cx="20"  stroke-linejoin="round" stroke-linecap="round" />
+    </svg>
+    <span class="slide__control_arrow slide__control_up"></span>
+  </div>
+  {%- for i in (1..count) -%}
+  <li class="slide__control {% if i == 1 %}current{% endif %}"></li>
+  {%- endfor -%}
+  <div class="slide__control__icon slide__control_bottom" id="nextBtn">
+    <svg width="40" height="40">
+      <circle class="circle-progress" r="18" cy="20" cx="20"  stroke-linejoin="round" stroke-linecap="round" />
+    </svg>
+    <span class="slide__control_arrow slide__control_down"></span>
+  </div>
+</ul>

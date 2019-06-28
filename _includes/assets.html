@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="{{ "/assets/main.css" | asset_version }}" />
+<script src="{{ "/assets/js/main.js" | asset_version }}" defer></script>
+{%- if "chapter,post,page" contains page.layout -%}
+{%- if site.theme_setting.code or page.code -%}
+<link rel="stylesheet" href="{{ "/assets/css/tomorrow.css" | relative_url }}" />
+<script src="{{ "/assets/js/highlight.js" | relative_url }}"></script>
+{%- endif -%}
+{%- if site.theme_setting.math or page.math -%}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+{%- endif -%}
+{%- if site.theme_setting.mermaid or page.mermaid -%}
+<script src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js" defer></script>
+{%- endif -%}
+{%- endif -%}

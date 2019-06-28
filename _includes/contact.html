@@ -1,0 +1,7 @@
+<aside class="post__contact">
+  {%- assign about_page_path = site.theme_setting.about_page | default: "index.md" %}
+  {%- assign about_page = site.pages | where: "path", about_page_path | first -%}
+  <h4><a href="{{ about_page.url | relative_url }}">{{ site.author | default: site.title }}</a></h4>
+  {{ site.description | markdownify }}
+  {%- include icons.html -%}
+</aside>

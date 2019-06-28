@@ -1,0 +1,35 @@
+<div class="comment" id="comment-{{index}}">
+  <div class="comment-main clearfix">
+    <div class="comment-left">
+      <div class="comment__avatar"><img src="https://www.gravatar.com/avatar/{{ email }}?d=mm&s=45"></div>
+    </div>
+    <div class="comment-right">
+      <div class="comment__meta">
+        {%- if url and url != "" -%}
+        <a class="comment__author" href="{% if url contains "http" -%}{{ url }}{% else %}{{ url | prepend: "http://" }}{% endif %}" target="_blank" rel="nofollow">{{ name }}</a>
+        {%- else -%}
+        <span class="comment__author">{{ name }}</span>
+        {%- endif -%}
+        <span class="comment__date">{{ date | date: "%Y-%m-%d %H:%M"}}</span>
+      </div>
+      <div class="comment__content">
+        {{ message | smiley | markdownify }}
+      </div>
+       <div class="comment__reply">
+         <a href="#commentContainer" class="reply-btn" data-reply-to="{{ index }}" data-reply-id="{{ email }}">{{ site.theme_setting.lang.comment.reply | default: "Reply" }}</a>
+       </div>
+    </div>
+  </div>
+   {%- capture i -%}{{ include.index }}{% endcapture -%}
+   {%- assign replies = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].parent == i' -%}
+   {%- for reply in replies -%}
+     {%- assign index   = forloop.index | prepend: '-' | prepend: include.index -%}
+     {%- assign parent  = reply[1].parent | to_integer -%}
+     {%- assign email   = reply[1].email -%}
+     {%- assign name    = reply[1].name -%}
+     {%- assign url     = reply[1].url -%}
+     {%- assign date    = reply[1].date -%}
+     {%- assign message = reply[1].message -%}
+     {%- include comment.html index=index parent=parent email=email name=name url=url date=date message=message -%}
+   {%- endfor -%}
+</div>

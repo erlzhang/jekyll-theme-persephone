@@ -1,0 +1,30 @@
+<div class="book-summary" id="bookSummary">
+  <nav role="navigation">
+    <ul class="summary">
+      <li class="chapter {% if page.book.index.url == page.url -%}active{% endif -%}">
+        <a href="{{ page.book.url | relative_url }}" class="custom-link">{{ page.book.title }}</a>
+      </li>
+      <li class="divider"></li>
+      {%- for part in page.book.parts -%}
+      <li class="chapter {% if part.url == page.url -%}active{% endif -%}">
+        {%- if part.url -%}
+        <a href="{{ part.url | relative_url }}">{{ part.title }}</a>
+        {%- else -%}
+        <span>{{ part.title }}</span>
+        {%- endif -%}
+
+        {%- if part.parts.size > 0 -%}
+        <ul class="articles">
+          {%- for part in part.parts -%}
+            
+          <li class="chapter {% if part.url == page.url -%}active{% endif -%}">
+            <a href="{{ part.url | relative_url }}">{{ part.title }}</a>
+          </li>
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+</div>

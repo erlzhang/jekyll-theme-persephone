@@ -1,0 +1,50 @@
+<form method="POST" action="{{ site.comment.postUrl }}" class="comment__form clearfix" id="newComment">
+  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
+  <input name="options[title]" type="hidden" value="{{ page.title }}">
+  <input name="options[url]" type="hidden" value="{{ page.url | prepend: site.baseurl }}">
+  <input name="options[replyTo]" type="hidden" value="">
+  <input name="fields[parent]" type="hidden" value="">
+  <div class="comment-left">
+    <div class="comment__avatar">
+      <img src="https://www.gravatar.com/avatar/?d=mm&s=54"  id="visitorAvatar"/>
+    </div>
+  </div>
+  <div class="comment-right new-comment-right">
+     <div class="comment__box">
+       <div class="comment__box_top hide" id="visitorInfo">
+         <div class="input-group">
+            <input type="text" name="fields[name]" placeholder="*{{ site.theme_setting.lang.comment.user | default: 'Name' }}" class="form-control form-control-name" required autocomplete="true">
+            <label class="input-label">
+            {%- include icons/user.html -%}
+            </label>
+          </div>
+          <div class="input-group">
+            <input type="text" placeholder="*{{ site.theme_setting.lang.comment.email | default: 'Email' }}" class="form-control" type="email" required name="fields[email]" autocomplete="true">
+            <label class="input-label">
+            {%- include icons/mail.html -%}
+            </label>
+          </div>
+          <div class="input-group">
+            <input type="text" placeholder="{{ site.theme_setting.lang.comment.url | default: 'Your Site' }}" class="form-control" type="url" name="fields[url]" autocomplete="true">
+            <label class="input-label">
+            {%- include icons/link.html -%}
+            </label>
+          </div>
+        </div>
+      <div class="comment__box_center">
+        <textarea name="fields[message]" class="form-control message-text" placeholder="{{ site.theme_setting.lang.comment.message | default: 'Something to say...' }}"></textarea>
+        <span class="message-arrow"></span>
+      </div>
+      <div class="comment__box_bottom">
+        {%- if site.smiley.enabled --%}
+        {%- include smiley.html -%}
+        {%- endif --%}
+        <div class="comment__hint" id="commentHint">
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          enmmm..
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

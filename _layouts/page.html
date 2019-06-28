@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{%- include header.html -%}
+<main class="post__wrapper">
+  {%- include header_nav.html -%}
+  <article class="post">
+    <header class="post__header">
+      <h1 class="post__title page__title">{{ page.title | escape }}</h1>
+    </header>
+    <div class="post__content content">
+      {{ content | img_prefix }}
+    </div>
+  </article>
+  {%- include contact.html -%}
+</main>
+{%- include footer.html -%}

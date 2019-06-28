@@ -1,0 +1,120 @@
+.book {
+  margin-left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.book__cover {
+  height: 100vh;
+  width: 40%;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.book__img {
+  height: 100vh;
+  width: auto;
+}
+.book__content {
+  width: 60%;
+  min-height: 100%;
+  margin-left: 40%;
+  @include flex();
+  @include flex-column();
+  //justify-content: center;
+  flex-wrap: nowrap;
+}
+.book__content_inner {
+  padding: 2.5rem 10%;
+  width: 100%;
+  flex: 1;
+  @include flex();
+  @include flex-column();
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.book__title {
+  margin: 2.5rem 0;
+  color: var(--dark);
+  font-size: 2.85rem;
+}
+.book__desc {
+  color: var(--dark-light);
+  line-height: 2rem;
+}
+.book__meta {
+  margin: 0 0 1.5rem 0;
+  color: var(--gray);
+  font-size: 0.875rem;
+}
+.book__icon {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  margin: 1.5rem 0;
+}
+.book__icon .circle-progress {
+  stroke-dasharray: 0 226;
+}
+.book__icon:hover .circle-progress {
+  stroke-dasharray: 226 226;
+}
+.book__icon_arrow {
+  position: absolute;
+  width: 60%;
+  height: 2px;
+  top: calc(50% - 1px);
+  left: 20%;
+  background-color: var(--gray-light);
+  transition: all 0.25s ease-in;
+  &:before, &:after {
+    @include pseudo();
+    width: 50%;
+    height: 2px;
+    background-color: var(--gray-light);
+    right: 0;
+    top: 0;
+  }
+  &:before {
+    transform-origin: bottom right;
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform-origin: top right;
+    transform: rotate(-45deg);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .book {
+    @include flex-column;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+  }
+  .book__cover, .book__content {
+    width: 100%;
+  }
+  .book__cover {
+    height: 35%;
+    position: static;
+    .book__img {
+      width: 100%;
+      height: auto;
+      margin-top: -35%;
+    }
+  }
+  .book__content {
+    margin-left: 0;
+  }
+  .book__content_inner {
+    padding: 1rem 10%;
+  }
+  .book__more {
+    display: block;
+    text-align: center;
+  }
+}

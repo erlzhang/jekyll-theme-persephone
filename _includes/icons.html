@@ -1,0 +1,42 @@
+<div class="icon__list">
+  {%- if site.email -%}
+  <a href="mailto:{{ site.email }}" class="icon__link" target="_blank">
+    {%- include icons/mail.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.social.github -%}
+  <a href="https://github.com/{{ site.social.github | cgi_escape | escape }}" class="icon__link" target="_blank">
+    {%- include icons/github.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.social.twitter -%}
+  <a href="https://twitter.com/{{ site.social.twitter | cgi_escape | escape }}" class="icon__link" target="_blank">
+    {%- include icons/twitter.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.social.facebook -%}
+  <a href="https://www.facebook.com/{{ site.social.facebook | cgi_escape | escape }}" class="icon__link" target="_blank">
+    {%- include icons/facebook.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.social.instagram -%}
+  <a href="https://www.instagram.com/{{ site.social.instagram | cgi_escape | escape }}" class="icon__link">
+    {%- include icons/instagram.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.social.linkedin -%}
+  <a href="https://www.linkedin.com/in/{{ site.social.linkedin | cgi_escape | escape }}" class="icon__link">
+    {%- include icons/linkedin.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.social.weibo -%}
+  <a href="https://weibo.com/{{ site.social.weibo | cgi_escape | escape }}" class="icon__link">
+    {%- include icons/weibo.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.rss -%}
+  <a href="{{ site.rss | relative_url }}" class="icon__link">
+    {%- include icons/rss.html -%}
+  </a>
+  {%- endif -%}
+</div>

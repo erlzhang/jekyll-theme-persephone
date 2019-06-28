@@ -1,0 +1,12 @@
+<div class="comment__smileys" id="smileyContainer">
+  <div class="comment__smileys_box" id="smileyBox">
+    {%- for smiley in site.smileys -%}
+    <a href="#" data-smiley="{{ smiley[1]['slug'] }}" data-src="{{ smiley[1]['img'] }}" class="comment__smiley">
+      <img src="{{ smiley[1]['img'] }}" alt="{{ smiley[0] }}" />
+    </a>
+    {%- endfor -%}
+  </div>
+  <div class="comment__smileys_toggler">
+  {%- include icons/smile.html -%}
+  </div>
+</div>

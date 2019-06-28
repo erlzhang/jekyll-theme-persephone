@@ -1,0 +1,10 @@
+{%- if site.theme_setting.nav_pages -%}
+<nav class="top-nav">
+{% for page_path in site.theme_setting.nav_pages %}
+{%- assign my_page = site.pages | where: "path", page_path | first -%}
+{% if my_page.title %}
+<a href="{{ my_page.url | relative_url}}" class="nav-link {% if page.url == my_page.url %}active{% endif %}">{{ my_page.title}}</a>
+{% endif %}
+{% endfor %}
+</nav>
+{%- endif -%}

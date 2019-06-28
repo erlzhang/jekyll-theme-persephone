@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<div class="book__wrapper sidebar-right" id="bookMain">
+  {%- include summary.html -%}
+  <div class="book__body">
+    <div class="body__inner">
+      {%- include header.html -%}
+      <main class="chapter__wrapper" tabindex="-1" role="main">
+        <div class="chapter__inner">
+          <article class="chapter__content content">
+            {{ content | img_prefix }}
+          </article>
+        </div>
+        {%- include footer.html -%}
+      </main>
+    </div>
+    {%- if page.prev -%}
+      <a href="{{ page.prev.url | relative_url }}" class="navigation navigation-prev" aria-label="Previous page: {{ page.prev.title }}">
+        {%- include icons/left.html -%}
+      </a>
+    {%- endif -%}
+    {%- if page.next -%}
+      <a href="{{ page.next.url | relative_url }}" class="navigation navigation-next" aria-label="Next page: {{ page.next.title }}">
+        {%- include icons/right.html -%}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+{%- if page.code -%}
+  <script>hljs.initHighlightingOnLoad();</script>
+{%- endif -%}

@@ -1,0 +1,278 @@
+.content {
+  display: block;
+  word-wrap: break-word;
+  overflow: hidden;
+  color: var(--dark);
+  line-height: 1.7;
+  /* Printing */
+  /* Typography */
+  /* Spacing */
+  /* Links */
+  /* Images */
+  /* Horizontal lines */
+  /* Headings */
+  /* Code blocks */
+  /* Tables */
+  /* Lists */
+  /* Blockquote */
+  /* Description Lists */
+}
+.content * {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: inherit;
+}
+.content > *:first-child {
+  margin-top: 0 !important;
+}
+.content > *:last-child {
+  margin-bottom: 0 !important;
+}
+.content pre,
+.content code,
+.content blockquote,
+.content tr,
+.content img,
+.content table,
+.content figure {
+  page-break-inside: avoid;
+}
+.content p,
+.content h2,
+.content h3,
+.content h4,
+.content h5 {
+  orphans: 3;
+  widows: 3;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5 {
+  page-break-after: avoid;
+}
+.content strong,
+.content b {
+  font-weight: bold;
+}
+.content em {
+  font-style: italic;
+}
+.content p,
+.content blockquote,
+.content ul,
+.content ol,
+.content dl,
+.content table {
+  margin-top: 0;
+  margin-bottom: 0.85em;
+}
+.content a {
+  text-decoration: none;
+  background: transparent;
+  display: inline-block;
+  border-bottom: 1px dashed var(--gray);
+  margin: 0 0.25rem;
+  font-size: 0.9em;
+  color: var(--grayer);
+}
+.content a:hover,
+.content a:focus,
+.content a:active {
+  outline: 0;
+  border-style: solid;
+}
+.content img {
+  border: 0;
+  max-width: 100%;
+}
+.content hr {
+  height: 1px;
+  padding: 0;
+  margin: 1.7em 0;
+  overflow: hidden;
+  background-color: #e7e7e7;
+  border: none;
+}
+.content hr:before,
+.content hr:after {
+  display: table;
+  content: " ";
+}
+.content hr:after {
+  clear: both;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-top: 1.275em;
+  margin-bottom: 0.85em;
+  font-weight: 550;
+}
+.content h1 {
+  font-size: 2.3em;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+.content h2 {
+  font-size: 1.75em;
+}
+.content h3 {
+  font-size: 1.5em;
+}
+.content h4 {
+  font-size: 1.25em;
+}
+.content h5 {
+  font-size: 1em;
+}
+.content h6 {
+  font-size: 1em;
+  color: #777;
+}
+.content code,
+.content pre {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  direction: ltr;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  color: inherit;
+}
+.content pre {
+  overflow: auto;
+  word-wrap: normal;
+  margin: 0px;
+  padding: 0.85em 1em;
+  margin-bottom: 1.275em;
+  background: var(--lightest);
+}
+.content pre > code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  font-size: 0.85em;
+  white-space: pre;
+  background: transparent;
+}
+.content pre > code:before,
+.content pre > code:after {
+  content: normal;
+}
+.content code {
+  padding: 0.2em;
+  margin: 0;
+  font-size: 0.85em;
+  background-color: var(--lightest);
+  border-radius: 3px;
+  color: #EB5757;
+}
+.content code:before,
+.content code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+.content table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: auto;
+}
+.content table td,
+.content table th {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+.content table tr {
+  background-color: #fff;
+  border-top: 1px solid var(--gray-light);
+}
+.content table tr:nth-child(2n) {
+  background-color: var(--lightest);
+}
+.content table th {
+  font-weight: bold;
+}
+.content ul,
+.content ol {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.85em;
+  padding-left: 2em;
+}
+.content ul ol,
+.content ol ol,
+.content ul ul,
+.content ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.content ol ol {
+  list-style-type: lower-roman;
+}
+.content blockquote {
+  margin: 0;
+  margin-bottom: 0.85em;
+  padding: 0 15px;
+  color: var(--gray);
+  border-left: 4px solid var(--light);
+}
+.content blockquote:first-child {
+  margin-top: 0;
+}
+.content blockquote:last-child {
+  margin-bottom: 0;
+}
+.content dl {
+  padding: 0;
+}
+.content dl dt {
+  padding: 0;
+  margin-top: 0.85em;
+  font-style: italic;
+  font-weight: bold;
+}
+.content dl dd {
+  padding: 0 0.85em;
+  margin-bottom: 0.85em;
+}
+.content dd {
+  margin-left: 0;
+}
+.content .mermaid {
+  margin-bottom: 0.85rem;
+}
+.content sup {
+  .footnote {
+    font-size: 0.75rem;
+  }
+}
+.content .footnotes {
+  margin: 2rem 0 0 0;
+  padding: 1rem 0;
+  position: relative;
+  color: var(--gray);
+  width: 100%;
+  text-align: left;
+  &:before {
+    @include pseudo();
+    left: 0;
+    background-color: var(--light);
+    width: 30%;
+    height: 1px;
+    top: 0;
+  }
+  ol {
+    li {
+      font-size: 0.875rem;
+    }
+  } 
+}

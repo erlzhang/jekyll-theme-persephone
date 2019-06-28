@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{%- include header.html -%}
+<main class="post__wrapper">
+  {%- include header_nav.html -%}
+  <div class="post__top_navs clearfix">
+    <nav class="post__archive_path">
+      {%- assign blog_page_path = site.theme_setting.blog_page | default: "index.md" %}
+      {%- assign blog_page = site.pages | where: "path", blog_page_path | first -%}
+      <a href="{{ blog_page.url | relative_url }}" id="archiveBtn">
+        <div class="post__archive_icon">
+          <svg width="40" height="40">
+            <circle class="circle-progress" r="18" cy="20" cx="20"  stroke-linejoin="round" stroke-linecap="round" />
+          </svg>
+          <span class="post__archive_icon"></span>
+        </div>
+        {{ site.theme_setting.lang.blog_title | default: site.title }}
+      </a>
+    </nav>
+  </div>
+  <article class="post">
+    <header class="post__header">
+      <h1 class="post__title">{{ page.title | escape }}</h1>
+      <div class="post__meta">
+        <time>{{ page.date | date: "%Y-%m-%d %H:%M" }}</time>
+      </div>
+    </header>
+    <div class="post__content content">
+      {{ content | img_prefix }}
+    </div>
+  </article>
+  {%- if site.comment.enabled -%}
+  {% include comments.html -%}
+  {%- else -%}
+  {% include contact.html -%}
+  {%- endif -%}
+</main>
+{%- if page.code -%}
+  <script>hljs.initHighlightingOnLoad();</script>
+{%- endif -%}
+{%- include footer.html -%}

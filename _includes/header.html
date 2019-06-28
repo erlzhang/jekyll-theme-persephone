@@ -1,0 +1,24 @@
+<a href="{{ "/" | relative_url }}" class="logo">
+  {%- if site.logo -%}
+  <img src="{{ site.logo | img_url_prefix }}" class="logo_img">
+  {%- endif -%}
+  <h1>{{ site.title }}</h1>
+</a>
+{%- if "home,chapter,book" contains page.layout and site.theme_setting.archive_page -%}
+{%- assign archive_page = site.pages | where: "path", site.theme_setting.archive_page | first -%}
+<a href="{{ archive_page.url | relative_url }}" class="sidebar__toggler">
+  <span class="sidebar__toggler_top"></span>
+  <span class="sidebar__toggler_middle"></span>
+  <span class="sidebar__toggler_bottom"></span>
+</a>
+{%- endif %}
+{%- if page.layout == "chapter" -%}
+<div class="book-header" role="navigation">
+    <a href="#" id="summaryToggler" class="summary__toggler">
+      {% include icons/ellipsis.html%}
+    </a>
+  <h1>
+    {{ page.title }} - {{ page.book.title }}
+  </h1>
+</div>
+{%- endif -%}
