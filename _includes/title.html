@@ -1,6 +1,6 @@
 {%- if page.layout == "chapter" -%}
 <title>{{ page.title }} - {{ page.book.title }} | {{ site.title }}</title>
-{%- elsif page.layout == "home" -%}
+{%- elsif page.layout == "home" or page.path == "index.md" -%}
 <title>{{ site.title }}</title>
 {%- else -%}
 <title>{{ page.title }} | {{ site.title }}</title>

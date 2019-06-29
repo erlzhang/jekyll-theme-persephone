@@ -36,7 +36,7 @@ layout: default
   {% include contact.html -%}
   {%- endif -%}
 </main>
-{%- if page.code -%}
+{%- if site.theme_setting.code or page.code -%}
   <script>hljs.initHighlightingOnLoad();</script>
 {%- endif -%}
 {%- include footer.html -%}

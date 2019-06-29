@@ -46,7 +46,7 @@ export default class Archive {
   filter(category) {
     for( let post of this.posts ) {
       let cat = post.getAttribute("data-category")
-      if ( cat == category || category == "all" ) {
+      if ( cat.indexOf(category) > -1 || category == "all" ) {
         post.style.display = "block"
       } else {
         post.style.display = "none"
