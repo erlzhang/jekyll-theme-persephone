@@ -14,11 +14,11 @@ To experiment with this code, add some sample content and run `bundle exec jekyl
 | ![post layout](/screenshots/post.png) | ![page layout](/screenshots/page.png) |
 | `layout: post` [Demo](https://erl.im/the-jekyll-comment-system) | `layout: page` [Demo](https://erl.im/about) |
 | ![archive layout](/screenshots/archive.png)      | ![home layout](/screenshots/home.png) |
-| `layout: archive` [Demo](https://erl.im/archive) | <strong color="red">*</strong> `layout: home` [Demo](https://erl.im) |
+| `layout: archive` [Demo](https://erl.im/archive) | <strong style="color: red">*</strong> `layout: home` [Demo](https://erl.im) |
 | ![book layout](/screenshots/book.png) | ![chapter layout](/screenshots/chapter.png) |
-| <strong color="red">*</strong> `layout: book` [Demo](https://erl.im/corner) | <strong color="red">*</strong> `layout: chapter` [Demo](https://erl.im/corner/1) |
+| <strong style="color: red">*</strong> `layout: book` [Demo](https://erl.im/corner) | <strong style="color: red">*</strong> `layout: chapter` [Demo](https://erl.im/corner/1) |
 
-*The layout with red <strong color="red">*</strong> relied on a jekyll books generator plugin: [`jekyll-books`](https://github.com/erlzhang/jekyll-books) *
+The layout with red <strong style="color: red">*</strong> relied on a jekyll books generator plugin: [`jekyll-books`](https://github.com/erlzhang/jekyll-books)
 
 ## Installation
 
