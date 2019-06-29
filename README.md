@@ -1,13 +1,24 @@
 # jekyll-theme-persephone
 
-[![Gem Version](https://badge.fury.io/rb/jekyll-theme-persephone.svg)](https://badge.fury.io/rb/jekyll-theme-persephone)
-
 Welcome to your new Jekyll theme! In this directory, you'll find the files you need to be able to package up your theme into a gem. Put your layouts in `_layouts`, your includes in `_includes`, your sass files in `_sass` and any other assets in `assets`.
 
 To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
 
 [DEMO](https://erl.im)
 
+## Demo
+
+| ![blog layout](/screenshots/blog.png) | ![list layout](/screenshots/list.png) |
+| -- | -- |
+| `layout: blog` | `layout: list` [Demo](https://erl.im/blog) |
+| ![post layout](/screenshots/post.png) | ![page layout](/screenshots/page.png) |
+| `layout: post` [Demo](https://erl.im/the-jekyll-comment-system) | `layout: page` [Demo](https://erl.im/about) |
+| ![archive layout](/screenshots/archive.png)      | ![home layout](/screenshots/home.png) |
+| `layout: archive` [Demo](https://erl.im/archive) | <strong color="red">*</strong> `layout: home` [Demo](https://erl.im) |
+| ![book layout](/screenshots/book.png) | ![chapter layout](/screenshots/chapter.png) |
+| <strong color="red">*</strong> `layout: book` [Demo](https://erl.im/corner) | <strong color="red">*</strong> `layout: chapter` [Demo](https://erl.im/corner/1) |
+
+*The layout with red <strong color="red">*</strong> relied on a jekyll books generator plugin: [`jekyll-books`](https://github.com/erlzhang/jekyll-books) *
 
 ## Installation
 
@@ -51,4 +62,3 @@ To add a custom directory to your theme-gem, please edit the regexp in `jekyll-t
 ## License
 
 The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
