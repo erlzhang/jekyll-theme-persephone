@@ -50,15 +50,15 @@ You can also add external links of your books. Just create a `books.yml` file in
 
 ```yml
 -
-	title: Persephone
-	start: 2018
-	end: 2019
-	img: /img/persephone.png
-	url: www.yourexternalsite.com/persephone #It can be an external link.
+  title: Persephone
+  start: 2018
+  end: 2019
+  img: /img/persephone.png
+  url: www.yourexternalsite.com/persephone #It can be an external link.
 -
-	title: Blog
-	start: 2018
-	url: /blog/ #Or a relative path.
+  title: Blog
+  start: 2018
+  url: /blog/ #Or a relative path.
 ```
 They can be shown with the `home` layout or the `archive` layout.
 

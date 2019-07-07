@@ -74,4 +74,4 @@ smiley:
 
 ```
 
-Your can download the demo `_config.yml` file [here](/config.yml)
+Your can download the demo `_config.yml` file [here](/_config.yml)
