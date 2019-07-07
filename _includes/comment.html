@@ -10,6 +10,9 @@
         {%- else -%}
         <span class="comment__author">{{ name }}</span>
         {%- endif -%}
+				{%- if parent != "" and parent_name -%}
+				<span class="comment__reply_to">@{{ parent_name }}</span>
+				{%- endif -%}
         <span class="comment__date">{{ date | date: "%Y-%m-%d %H:%M"}}</span>
       </div>
       <div class="comment__content">
@@ -25,11 +28,12 @@
    {%- for reply in replies -%}
      {%- assign index   = forloop.index | prepend: '-' | prepend: include.index -%}
      {%- assign parent  = reply[1].parent | to_integer -%}
+		 {%- assign parent_name=name -%}
      {%- assign email   = reply[1].email -%}
      {%- assign name    = reply[1].name -%}
      {%- assign url     = reply[1].url -%}
      {%- assign date    = reply[1].date -%}
      {%- assign message = reply[1].message -%}
-     {%- include comment.html index=index parent=parent email=email name=name url=url date=date message=message -%}
+     {%- include comment.html index=index parent=parent email=email name=name url=url date=date message=message parent_name=parent_name -%}
    {%- endfor -%}
 </div>

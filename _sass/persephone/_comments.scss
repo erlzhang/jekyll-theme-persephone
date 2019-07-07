@@ -173,10 +173,12 @@ textarea.form-control {
 .comment {
   margin: 1rem 0;
   border-radius: 0.35rem;
-  padding: 0.5rem 0 0.5rem 0.5rem;
-  .comment {
-    margin-left: 2rem;
-  }
+}
+.comment__list > .comment {
+	padding: 0.5rem 0 0.5rem 0.5rem;
+}
+.comment__list > .comment > .comment {
+	margin-left: 2.5rem;
 }
 .comment_new {
   background-color: var(--lighter);
@@ -185,6 +187,11 @@ textarea.form-control {
   font-size: 1.05rem;
   line-height: 2.5rem;
   margin-right: 10px;
+}
+.comment__reply_to {
+	color: var(--gray);
+	margin-right: 10px;
+  font-size: 0.875rem;
 }
 .comment__date {
   color: var(--light-gray);

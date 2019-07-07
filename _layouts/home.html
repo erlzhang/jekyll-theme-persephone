@@ -1,6 +1,29 @@
 ---
 layout: default
 ---
-{%- include loading.html -%}
+
 {%- include header.html -%}
-{%- include slides.html -%}
+<main class="post__archive">
+  {%- include header_nav.html -%}
+  {%- if paginator -%}
+  {%- assign posts=paginator.posts -%}
+  {%- else -%}
+  {%- assign posts=site.posts -%}
+  {%- endif -%}
+  {%- for post in posts -%}
+    <article class="post__entry">
+      <a href="{{ post.url | relative_url }}" class="post__entry__link">
+        <h2>{{ post.title }}</h2>
+        <div class="post__meta">
+          <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+        </div>
+        <div class="post__excerpt">
+          {{ post.excerpt | markdownify | strip_html | truncate: 100 }}
+        </div>
+        <div class="post__more_arrow"></div>
+      </a>
+    </article>
+  {%- endfor -%}
+  {%- include pagination.html -%}
+</main>
+{%- include footer.html -%}

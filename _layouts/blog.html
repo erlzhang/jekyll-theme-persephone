@@ -2,28 +2,34 @@
 layout: default
 ---
 
-{%- include header.html -%}
-<main class="post__archive">
+{% include header.html %}
+
+<main class="post__archive" id="postArchive">
   {%- include header_nav.html -%}
-  {%- if paginator -%}
-  {%- assign posts=paginator.posts -%}
-  {%- else -%}
-  {%- assign posts=site.posts -%}
-  {%- endif -%}
-  {%- for post in posts -%}
-    <article class="post__entry">
-      <a href="{{ post.url | relative_url }}" class="post__entry__link">
-        <h2>{{ post.title }}</h2>
-        <div class="post__meta">
-          <time>{{ post.date | date: "%Y-%m-%d" }}</time>
-        </div>
-        <div class="post__excerpt">
-          {{ post.excerpt | markdownify | strip_html | truncate: 100 }}
-        </div>
-        <div class="post__more_arrow"></div>
-      </a>
-    </article>
-  {%- endfor -%}
-  {%- include pagination.html -%}
+	{%- if site.categories.size > 0 -%}
+  <nav class="blog__categories">
+    <a href="#all" data-category="all" class="category active nav-link">{{ site.theme_setting.lang.category_all | default: "All" }}</a>
+    {%- for category in site.categories %}
+    <a href="#{{ category[0] }}" class="category nav-link" data-category="{{ category[0] }}">{{ category[0] }}</a>
+    {%- endfor %}
+  </nav>
+	{%- endif -%}
+  <div class="post__list archive__list">
+    {%- assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {%- for year in years %}
+      <h3 class="post__list_title">{{ year.name }}</h3>
+      {%- assign posts = year.items %}
+      <ul>
+        {%- for post in posts %}
+        <li class="post__list_item" data-category="{{ post.categories | join: ';' }}" {% if post.img %}data-img="{{ post.img | img_url_prefix }}"{% endif %}>
+          <a href="{{ post.url | relative_url }}">
+            <span class="archive__time">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <span class="archive__title">{{ post.title }}</span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+    {%- endfor %}
+  </div>
 </main>
 {%- include footer.html -%}

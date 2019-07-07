@@ -41,8 +41,8 @@
     </svg>
     <span class="slide__control_arrow slide__control_up"></span>
   </div>
-  {%- for i in (1..count) -%}
-  <li class="slide__control {% if i == 1 %}current{% endif %}"></li>
+  {%- for book in site.books limit: count -%}
+  <li class="slide__control {% if forloop.index == 1 %}current{% endif %}"></li>
   {%- endfor -%}
   <div class="slide__control__icon slide__control_bottom" id="nextBtn">
     <svg width="40" height="40">
