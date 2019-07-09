@@ -14,7 +14,7 @@ To experiment with this code, add some sample content and run `bundle exec jekyl
 
 | ![home layout](/screenshots/home.png) | ![blog layout](/screenshots/blog.png) |
 | -- | -- |
-| `layout: home` [Demo](https://en.erl.im) | `layout: blog` [Demo](https://erl.im/blog) |
+| `layout: home` [Demo](https://en.erl.im/blog/) | `layout: blog` [Demo](https://erl.im/blog) |
 | ![post layout](/screenshots/post.png) | ![page layout](/screenshots/page.png) |
 | `layout: post` [Demo](https://erl.im/the-jekyll-comment-system) | `layout: page` [Demo](https://erl.im/about) |
 | ![archive layout](/screenshots/archive.png)      | ![slides layout](/screenshots/slides.png) |
