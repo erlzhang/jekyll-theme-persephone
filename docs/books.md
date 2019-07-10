@@ -21,7 +21,7 @@ Create a directory named `_books` in your root path. The generator will read all
 - Create a `index.md` in `_books/persephone`;
 - Create other files the `_books/persephone`.
 
-`index.md` is the font page of your book. You should set the title, start and end date of your book, a thumbnail in its front matter. The `markdown` should looks like this:
+`index.md` is the front page of your book. You should set the title, start and end date of your book, a thumbnail in its front matter. The `markdown` should look like this:
 
 ```markdown
 ---
@@ -37,16 +37,16 @@ Your book introduction here!
 
 ```markdown
 * [Volume 1](v1.md)
-	* [Chapter 1](1-1.md)
-	* [Chapter 2](1-2.md)
+    * [Chapter 1](1-1.md)
+    * [Chapter 2](1-2.md)
 * [Volume 2](v2.md)
-	* [Chapter 1](2-1.md)
-	* [Chapter 2](2-2.md)
+    * [Chapter 1](2-1.md)
+    * [Chapter 2](2-2.md)
 ```
 
 ### External Books
 
-You can also add external links of your books. Just create a `books.yml` file in the dir of  `_data`.
+You can also add external links to your books. Just create a `books.yml` file in the dir of  `_data`.
 
 ```yml
 -
@@ -64,6 +64,6 @@ They can be shown with the `home` layout or the `archive` layout.
 
 ## Layouts for `jekyll-books`
 
-If you want to use `jekyll-books` plugin without the `jekyll-theme-persephone`, your should at least have two layouts. One `book` layout for the index page of a book and a `chapter` layout for every chapter.
+If you want to use `jekyll-books` plugin without the `jekyll-theme-persephone`, you should at least have two layouts. One `book` layout for the index page of a book and a `chapter` layout for every chapter.
 
-In theme Persephone, you can use layout `slides` or layout `archive` to make a index page of all of your pages.
+In theme Persephone, you can use layout `slides` or layout `archive` to make an index page of all of your pages.

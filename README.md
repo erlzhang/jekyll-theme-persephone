@@ -48,8 +48,9 @@ Or install it yourself as:
 
 ## Usage
 
-- [Settings](/docs/settings.md)
+- [Settings](/_config.yml)
 - [Layouts](/docs/layouts.md)
+- [Comments](/docs/comments.md)
 - [`jekyll-books` generator](/docs/books.md)
 
 ## Contributing
