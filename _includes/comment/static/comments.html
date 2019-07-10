@@ -1,0 +1,18 @@
+<div id="commentContainer" class="comment-container">
+  {%- include comment/static/new_comment.html -%}
+  <div class="comment__list" id="commentsList">
+  {%- if site.data.comments[page.slug] -%}
+    {%- assign comments = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].parent == ""' -%}
+    {%- for comment in comments -%}
+      {%- assign index   = forloop.index -%}
+      {%- assign email   = comment[1].email -%}
+      {%- assign name    = comment[1].name -%}
+      {%- assign url     = comment[1].url -%}
+      {%- assign date    = comment[1].date -%}
+      {%- assign message = comment[1].message -%}
+      {%- assign parent = comment[1].parent -%}
+      {% include comment/static/comment.html index=index email=email name=name url=url date=date message=message -%}
+    {%- endfor -%}
+  {%- endif -%}
+  </div>
+</div>

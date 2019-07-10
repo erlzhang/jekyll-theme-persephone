@@ -34,6 +34,6 @@
      {%- assign url     = reply[1].url -%}
      {%- assign date    = reply[1].date -%}
      {%- assign message = reply[1].message -%}
-     {%- include comment.html index=index parent=parent email=email name=name url=url date=date message=message parent_name=parent_name -%}
+     {%- include comment/static/comment.html index=index parent=parent email=email name=name url=url date=date message=message parent_name=parent_name -%}
    {%- endfor -%}
 </div>

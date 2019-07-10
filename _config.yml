@@ -59,10 +59,18 @@ head_code: |
 
 # The settings of comments.
 comment:
+  # You should set it to enable comment
   enabled: true
-  # The external url of your comments (See Staticman).
-  postUrl:  https://api.staticman.net/v2/connect/GITHUB-USERNAME/GITHUB-REPOSITORY
-# The settings of local smileys used in comments. The jekyll-smiley plugin is required.
+  # Your comment provider
+  provider: disqus # static/disqus
+  # If provider == disqus
+  disqus:
+    name: website_name
+  # Or provider == static
+  static:
+    # Your static comment url.
+    postUrl:  https://api.staticman.net/v2/connect/GITHUB-USERNAME/GITHUB-REPOSITORY
+# The settings of local smileys used in static comments. The jekyll-smiley plugin is required.
 smiley:
   enabled: true
   dir: img/smileys

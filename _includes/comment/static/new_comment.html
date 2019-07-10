@@ -1,4 +1,4 @@
-<form method="POST" action="{{ site.comment.postUrl }}" class="comment__form clearfix" id="newComment">
+<form method="POST" action="{{ site.comment.static.postUrl }}" class="comment__form clearfix" id="newComment">
   <input name="options[slug]" type="hidden" value="{{ page.slug }}">
   <input name="options[title]" type="hidden" value="{{ page.title }}">
   <input name="options[url]" type="hidden" value="{{ page.url | absolute_url }}">
