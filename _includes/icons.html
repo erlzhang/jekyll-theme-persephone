@@ -20,18 +20,23 @@
   </a>
   {%- endif -%}
   {%- if site.social.instagram -%}
-  <a href="https://www.instagram.com/{{ site.social.instagram | cgi_escape | escape }}" class="icon__link">
+  <a href="https://www.instagram.com/{{ site.social.instagram | cgi_escape | escape }}" class="icon__link" target="_blank">
     {%- include icons/instagram.html -%}
   </a>
   {%- endif -%}
   {%- if site.social.linkedin -%}
-  <a href="https://www.linkedin.com/in/{{ site.social.linkedin | cgi_escape | escape }}" class="icon__link">
+  <a href="https://www.linkedin.com/in/{{ site.social.linkedin | cgi_escape | escape }}" class="icon__link" target="_blank">
     {%- include icons/linkedin.html -%}
   </a>
   {%- endif -%}
   {%- if site.social.weibo -%}
-  <a href="https://weibo.com/{{ site.social.weibo | cgi_escape | escape }}" class="icon__link">
+  <a href="https://weibo.com/{{ site.social.weibo | cgi_escape | escape }}" class="icon__link" target="_blank">
     {%- include icons/weibo.html -%}
+  </a>
+  {%- endif -%}
+  {%- if site.social.codepen -%}
+  <a href="https://codepen.io/{{ site.social.codepen | cgi_escape | escape }}" class="icon__link" target="_blank">
+    {%- include icons/codepen.html -%}
   </a>
   {%- endif -%}
   {%- if site.rss -%}
