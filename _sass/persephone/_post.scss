@@ -1,7 +1,7 @@
 .post__wrapper {
   max-width: var(--content-width);
   width: 100%;
-  margin: 3rem auto 1.5rem auto;
+  margin: 3rem auto 1.5rem;
   padding: 1.5rem 1rem;
   &:after {
     content: "";
@@ -80,7 +80,7 @@
 .post__header {
   margin-bottom: 1rem;
   .post__title {
-    margin: 3rem 0 1.3rem 0;
+    margin: 3rem 0 1.3rem;
   }
   .page__title {
     margin-top: 1rem;
@@ -126,7 +126,7 @@
   }
   p {
     font-size: 0.875rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1rem;
   }
   .icon__list {
     text-align: left;

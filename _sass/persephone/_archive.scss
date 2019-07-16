@@ -36,7 +36,7 @@
   .archive__header_intro {
     width: 70%;
     max-width: 345px;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.5rem;
     color: var(--grayer);
     font-size: 0.875rem;
   }
@@ -52,7 +52,7 @@
 }
 .archive__list {
   width: 100%;
-  margin: 1.5rem 0 2.5rem 0;
+  margin: 1.5rem 0 2.5rem;
   flex: 1;
   @include flex();
   @include flex-column();
@@ -86,7 +86,7 @@
 }
 .icon__list {
   text-align: center;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1.5rem;
 }
 .icon__link svg {
   margin: 0 5px;
@@ -121,7 +121,7 @@
     margin: 0;
   }
   .archive__header {
-    padding: 5rem 0 0 0;
+    padding: 5rem 0 0;
     position: static;
   }
 }

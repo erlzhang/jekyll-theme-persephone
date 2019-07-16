@@ -2,7 +2,7 @@
   margin-bottom: 2rem;
 }
 .post__archive__header {
-  margin: 5rem 0 5rem 0;
+  margin: 5rem 0;
   @include flex();
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@
   }
 }
 .post__entry {
-  margin: 0 0 3rem 0;
+  margin: 0 0 3rem;
   .post__link {
     display: block;
   }
@@ -41,11 +41,11 @@
   .post__meta {
     font-size: 0.875rem;
     color: var(--gray);
-    margin: 0.5rem 0 1rem 0;
+    margin: 0.5rem 0 1rem;
   }
   .post__excerpt {
     color: var(--gray);
-    margin: 0.5rem 0 0 0;
+    margin: 0.5rem 0 0;
     p {
       line-height: 1.5rem;
     }
@@ -161,7 +161,7 @@
         &:before, &:after {
           right: 0;
           top: 0;
-        }  
+        }
         &:before {
           transform-origin: bottom right;
           transform: rotate(45deg);
@@ -175,7 +175,7 @@
         &:before, &:after {
           left: 0;
           top: 0;
-        }  
+        }
         &:before {
           transform-origin: bottom left;
           transform: rotate(45deg);

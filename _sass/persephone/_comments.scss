@@ -29,7 +29,7 @@
     width: 0;
     height: 0;
     right: 100%;
-    border-style: solid solid outset solid;
+    border-style: solid solid outset;
     pointer-events: none;
   }
   &:after {
@@ -89,7 +89,7 @@
 .comment__smileys_toggler {
   width: 48px;
   text-align: center;
-  padding: 9px 0 0 0;
+  padding: 9px 0 0;
   border-right: 1px solid var(--lighter);
   cursor: pointer;
   svg {

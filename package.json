@@ -1,6 +1,6 @@
 {
   "name": "persephone",
-  "version": "1.0.0",
+  "version": "0.1.7",
   "description": "persephone theme js",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/erlzhang/persephone.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sharon Zhang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/erlzhang/persephone/issues"

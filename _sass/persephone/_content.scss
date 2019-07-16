@@ -139,15 +139,15 @@
 .content pre {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   direction: ltr;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   border: none;
   color: inherit;
 }
 .content pre {
   overflow: auto;
   word-wrap: normal;
-  margin: 0px;
+  margin: 0;
   padding: 0.85em 1em;
   margin-bottom: 1.275em;
   background: var(--lightest);
@@ -257,7 +257,7 @@
   }
 }
 .content .footnotes {
-  margin: 2rem 0 0 0;
+  margin: 2rem 0 0;
   padding: 1rem 0;
   position: relative;
   color: var(--gray);
@@ -275,5 +275,5 @@
     li {
       font-size: 0.875rem;
     }
-  } 
+  }
 }

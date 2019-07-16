@@ -8,11 +8,19 @@ const formatRule = {
 }
 
 export default class DateTime {
-  constructor (time=null) {
-    this.time = new Date(time) || new Date()
+  
+  /**
+  * @param {number} time Timestamp of a given time.
+  */
+  constructor (time) {
+    this.time = new Date(time)
     this.metas = this.getDateMetas()
   }
 
+  /**
+   * Get all of the date metas.
+   * @return {object}
+   */
   getDateMetas () {
     return {
       year: this.time.getFullYear(),
@@ -24,6 +32,11 @@ export default class DateTime {
     }
   }
 
+  /**
+   * Cover the zero if a number's lenth is 1.
+   * @param {number} number
+   * @return {number} The result number.
+   */
   coverZero (number) {
     number = number + ""
     if ( number.length < 2 ) {
@@ -32,6 +45,11 @@ export default class DateTime {
     return number
   }
 
+  /**
+   *  Transform the datetime to string with given format.
+   *  @param {string} format A string that made up of formatRule.
+   *  @return {string} The transform result.
+   */
   parse (format) {
     for ( let f in formatRule ) {
       var meta = this.metas[ formatRule[f] ]
@@ -43,6 +61,10 @@ export default class DateTime {
     return format
   }
 
+  /**
+   * Transfrom the datetime to timestamp.
+   * @return {number} The output timestamp.
+   */
   getTimestamp () {
     return this.time.getTime()
   }

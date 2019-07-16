@@ -4,23 +4,26 @@ import Comment from './components/Comment.js'
 import Archive from './components/Archive.js'
 
 if ( document.getElementById("bookSummary") ) {
-  const summary = new Summary()
+  new Summary()
 }
 
 if ( document.getElementById("sectionContainer") ) {
-  const slider = new Slider()
+  new Slider()
 }
 
 if ( document.getElementById("postArchive") ) {
-  const archive = new Archive()
+  new Archive()
+}
+
+if ( document.getElementById("commentContainer") ) {
+  new Comment()
 }
 
 initMermaid();
 
-if ( document.getElementById("commentContainer") ) {
-  const comment = new Comment()
-}
-
+/**
+ * Get all of the mermaid code block and transform them into the format can be parsed by mermaid.
+ */
 function initMermaid() {
   let codes = document.getElementsByClassName("language-mermaid");
 
@@ -38,9 +41,5 @@ function initMermaid() {
     }
 
     p.replaceChild(chart, code.parentNode);
-  }
-
-  if( codes.length > 0 ) {
-    mermaid.initialize({startOnLoad:true});
   }
 }

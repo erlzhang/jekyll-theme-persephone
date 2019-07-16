@@ -29,9 +29,33 @@ export default class Slider {
       //this.bindMouseEvent()
       this.bindTouchEvent()
     })
-
   }
 
+  /**
+   * Init slides, controls and bind event to them.
+   */
+  initSlides () {
+    let i = 0,
+        sections = document.getElementsByClassName("slide__section");
+    for ( let section of sections ) {
+      let slide = new Slide(section, this)
+      this.slides.push(slide)
+
+      let control = this.controls[i]
+      slide.control = control
+      control.slideIndex = i
+
+      this.bindEventToControl(control)
+
+      i++
+    }
+    this.controls[this.current].classList.add("current")
+    this.len = this.slides.length
+  }
+
+  /**
+   * Bind top/right/bottom/left key event to animation.
+   */
   bindKeyEvent () {
     document.addEventListener("keyup", (event) => {
       if( event && ( event.keyCode == 39 || event.keyCode == 40 ) ) {
@@ -45,6 +69,9 @@ export default class Slider {
     })
   }
 
+  /**
+   * Bind mousewheel event to show animation.
+   */
   bindMouseEvent () {
     document.addEventListener("mousewheel", (event) => {
       this.direction = event.wheelDelta < 0
@@ -56,6 +83,9 @@ export default class Slider {
     })
   }
 
+  /**
+   * Bind touch event on mobile to show animation.
+   */
   bindTouchEvent () {
     this.touchtimes = 0
     this.touchx = []
@@ -76,30 +106,18 @@ export default class Slider {
     })
   }
 
+  /**
+   * Bind click events to the prev and next btn.
+   */
   bindControlsEvent () {
     this.nextBtn.addEventListener("click", () => this.nextSlide())
     this.prevBtn.addEventListener("click", () => this.prevSlide())
   }
 
-  initSlides () {
-    let i = 0,
-        sections = document.getElementsByClassName("slide__section");
-    for ( let section of sections ) {
-      let slide = new Slide(section, this)
-      this.slides.push(slide)
-
-      let control = this.controls[i]
-      slide.control = control
-      control.slideIndex = i
-
-      this.bindEventToControl(control)
-
-      i++
-    }
-    this.controls[this.current].classList.add("current")
-    this.len = this.slides.length
-  }
-
+  /**
+   * Bind click events to a control.
+   * @param {element} control The html element of a control.
+   */
   bindEventToControl (control) {
     let self = this;
     control.addEventListener("click", function() {
@@ -108,6 +126,10 @@ export default class Slider {
     });
   }
 
+  /**
+   * Move to the slide with a given index;
+   * @param {number} index The index of slide to be shown.
+   */
   move (index) {
     if( this.direction === true ) {
       this.current ++
@@ -119,31 +141,43 @@ export default class Slider {
       if( this.current < 0 ) {
         this.current = this.len - 1
       }
-    } else if ( typeof(this.direction) ) {
+    } else {
       this.current = this.direction
     }
 
     this.revealSlide()
   }
 
+  /**
+   * Reveal the current slide.
+   */
   revealSlide () {
     this.slides[this.current].reveal()
   }
 
-  changeSlide () {
-    if( this.inAnimation ) {
-      return
-    }
-    this.slides[this.current].reverse()
-  }
-
+  /**
+   * Move to the previous slide.
+   */
   prevSlide () {
     this.direction = false
     this.changeSlide()
   }
 
+  /**
+   * Move to next slide.
+   */
   nextSlide () {
     this.direction = true
     this.changeSlide()
+  }
+
+  /**
+   * Move the slide.
+   */
+  changeSlide () {
+    if( this.inAnimation ) {
+      return
+    }
+    this.slides[this.current].reverse()
   }
 }

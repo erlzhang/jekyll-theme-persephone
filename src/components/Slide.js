@@ -2,6 +2,10 @@ import { TweenMax, TimelineLite, Sine} from 'gsap/TweenMax'
 
 export default class Slide {
 
+  /**
+   * @param {element} ele The html element of a slide.
+   * @param {Slider} slider The main control of all the slides.
+   */
   constructor(ele, slider) {
     this.ele = ele
     this.slider = slider
@@ -13,10 +17,16 @@ export default class Slide {
     this.timeText = this.ele.getElementsByClassName("slide__time_text")[0]
   }
 
+  /**
+   * The animation of hiding the previous slide.
+   */
   reverse () {
     this.timeLine.reverse()
   }
 
+  /**
+   * The animation of revealing a slide.
+   */
   reveal () {
     this.show()
 
@@ -71,12 +81,18 @@ export default class Slide {
     })
   }
 
+  /**
+   * Hide the current element and control.
+   * */
   hide () {
     this.control.classList.remove("current")
     this.ele.style.opacity = '0'
     this.ele.style.zIndex = '1'
   }
 
+  /**
+   * Show the current element and control.
+   * */
   show () {
     this.ele.style.opacity = '1'
     this.ele.style.zIndex = '5'

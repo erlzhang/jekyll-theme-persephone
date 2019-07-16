@@ -14,7 +14,7 @@
   width: calc(100% - 300px);
 }
 .book-header h1 {
-  margin: 0px;
+  margin: 0;
   font-size: 20px;
   font-weight: 200;
   text-align: center;
@@ -60,19 +60,19 @@
 /*SUMMARY*/
 .book__body {
   position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  bottom: 0px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   overflow-y: auto;
   @include transition(left 250ms ease);
 }
 .book__body .body__inner {
   position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  bottom: 0px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   overflow-y: auto;
 }
 .book__wrapper.with-summary .book-summary {
@@ -97,7 +97,7 @@
   }
   .book__wrapper.with-summary .book__body {
     left: calc(100% - 60px);
-    right: calc(60px - 100%); 
+    right: calc(60px - 100%);
   }
   .book__wrapper.with-summary .sidebar__toggler {
     display: none;
@@ -116,8 +116,7 @@
 }
 .chapter__inner {
   position: relative;
-  max-width: 800px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 1.5rem 1rem;
   max-width: var(--content-width);
   flex: 1;
@@ -128,7 +127,7 @@
 .navigation {
   position: absolute;
   top: 50px;
-  bottom: 0px;
+  bottom: 0;
   margin: 0;
   max-width: 150px;
   min-width: 90px;
@@ -150,7 +149,7 @@
   right: 20px;
 }
 .navigation.navigation-prev {
-  left: 0px;
+  left: 0;
 }
 @media (max-width: 1240px) {
   .navigation {

@@ -78,11 +78,17 @@ export default class {
 
   }
 
+  /**
+   * Save the new visitor into cookie.
+   */
   newVisitor () {
     this.visitor = new Visitor(this.nameInput.value, this.emailInput.value, this.urlInput.value)
     this.visitor.save()
   }
 
+  /**
+   * Init a Visitor from the cookie.
+   */
   getVisitor () {
     let name = Cookies.get("name"),
         email = Cookies.get("email"),
@@ -93,6 +99,9 @@ export default class {
     }
   }
 
+  /**
+   * Update a visitor's info in the cookie if changed.
+   */
   checkVisitorInfo () {
     if ( this.visitor.name != this.nameInput.value ) {
       this.visitor.set_name(this.nameInput.value)
@@ -105,6 +114,9 @@ export default class {
     }
   }
 
+  /**
+   * Fill in the inputs from the visitor's info.
+   */
   initVisitorInfo () {
     this.nameInput.value = this.visitor.name
     this.emailInput.value = this.visitor.email || ""
@@ -112,6 +124,10 @@ export default class {
     this.avatarImg.src = this.visitor.avatar
   }
 
+  /**
+   * Post the comment to comment server.
+   * @param {object} data
+   */
   sendRequest (data) {
     $.ajax({
       url: this.postURL,
@@ -129,16 +145,27 @@ export default class {
     })
   }
 
+  /**
+   * Add a peice of error message to the hint box.
+   * @param {string} message The error message text.
+   */
   showError (message) {
     this.hintContainer.innerText = message
     this.hintContainer.classList.add("comment__error")
   }
 
+  /**
+   * Clear all of the errors of the hint box.
+   */
   clearError () {
     this.hintContainer.innerText = ""
     this.hintContainer.classList.remove("comment__error")
   }
 
+  /**
+   * Create a comment element and add it into the comments list.
+   * @param {object} comment
+   */
   addComment (comment) {
     let content = this.parseComment(comment) 
     let target
@@ -153,6 +180,11 @@ export default class {
     this.scrollTo(content)
   }
 
+  /**
+   * Compose the comment infos to a comment html element.
+   * @param {object} comment
+   * @return {element} The output html element.
+   */
   parseComment (comment) {
     let div = document.createElement("div")
     div.classList.add("comment", "comment_new", "clearfix")
@@ -179,6 +211,10 @@ export default class {
     return div
   }
 
+
+  /**
+   * If the input values are valid.
+   */
   isValidate () {
     if (     !this.nameInput.value
           || !this.emailInput.value
@@ -191,6 +227,9 @@ export default class {
   
   }
 
+  /**
+   * Clear text in textarea, the reply infos and the hint messages.
+   */
   clearMessage () {
     this.messageArea.innerText = ""
     this.messageArea.value = ""
@@ -200,6 +239,10 @@ export default class {
     this.clearError()
   }
 
+  /**
+   * Disable the submit button.
+   * @param {bool} isInSubmit Whether it is disabled because of in submitting.
+   */
   disableBtn (isInSubmit=false) {
     this.submitBtn.disabled = true
     if ( isInSubmit ) {
@@ -209,11 +252,19 @@ export default class {
     }
   }
 
+  /**
+   * Enable the submit button.
+   */
   enableBtn () {
     this.submitBtn.disabled = false
     this.submitBtn.innerHTML = MESSAGES["enabled"]
   }
 
+  /**
+   * Reply to a comment.
+   * @param {string} index The relative index of the comment replied to.
+   * @param {string} id The md5 of the email of the comment replied to.
+   */
   reply (index, id) {
     let authorEle = document.querySelector("#comment-" + index + " .comment__author")
     let author = authorEle.innerText
@@ -223,11 +274,18 @@ export default class {
     this.messageArea.focus()
   }
 
+  /**
+   * Clear the reply infos.
+   */
   cancleReply () {
     this.parentInput.value = ""
     this.hintContainer.innerText = ""
   }
 
+  /**
+   * Scroll the page to a given element.
+   * @param {element} content The html element to be scrolled to.
+   */
   scrollTo (content) {
     let t = content.offsetTop
     $("html, body").animate({

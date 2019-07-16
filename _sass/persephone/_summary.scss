@@ -1,8 +1,8 @@
 .book-summary {
   position: absolute;
-  top: 0px;
+  top: 0;
+  bottom: 0;
   left: -300px;
-  bottom: 0px;
   z-index: 1;
   overflow-y: auto;
   width: 300px;
@@ -28,8 +28,8 @@
 }
 .book-summary ul.summary {
   list-style: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   -webkit-transition: top 0.5s ease;
   -moz-transition: top 0.5s ease;
   -o-transition: top 0.5s ease;
@@ -95,7 +95,7 @@
 @media (max-width: 600px) {
   .book-summary {
     width: calc(100% - 60px);
-    bottom: 0px;
+    bottom: 0;
     left: -100%;
   }
 }

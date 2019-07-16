@@ -8,6 +8,7 @@ export default class Archive {
 
     this.init()
 
+    // Bind click event to every category element.
     let _this = this
     for ( let category of this.categories ) {
       category.addEventListener("click", function() {
@@ -17,6 +18,7 @@ export default class Archive {
       })
     }
 
+    // Add hover animation to every post.
     for ( let post of this.posts ) {
       new HoverImg( post )
 
@@ -29,6 +31,9 @@ export default class Archive {
     }
   }
 
+  /**
+   * Get the current category from the link's hash.
+   */
   init() {
     let hash = window.location.hash.slice(1)
     this.current = this.categories[0]
@@ -43,6 +48,10 @@ export default class Archive {
     }
   }
 
+  /**
+   * Hide the links whose categories are not equal to the current category;
+   * @param {element} category The current category.
+   */
   filter(category) {
     for( let post of this.posts ) {
       let cat = post.getAttribute("data-category")
@@ -54,6 +63,10 @@ export default class Archive {
     }
   }
 
+  /**
+   * Add fade class to all the links except the hover one.
+   * @param {element} target The hover item.
+   */
   fadeAll(target) {
     for ( let post of this.posts ) {
       if ( post != target ) {
@@ -63,12 +76,19 @@ export default class Archive {
   
   }
 
+  /**
+   * Remove fade class of all the links.
+   */
   unFadeAll() {
     for ( let post of this.posts ) {
       post.classList.remove("fade")
     }
   }
 
+  /**
+   * Change the current category.
+   * @param {element} category The current category.
+   */
   change(category) {
     this.current.classList.remove("active")
     this.current = category

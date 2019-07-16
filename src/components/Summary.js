@@ -11,6 +11,10 @@ export default class {
     }
   }
 
+  /**
+   * Hide or show the summary left bar with a given click event.
+   * @param {event} event A click event.
+   */
   toggle (event) {
     event.preventDefault();
     if( this.isOpen ) {
