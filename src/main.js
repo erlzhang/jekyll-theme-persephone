@@ -3,6 +3,8 @@ import Summary from './components/Summary.js'
 import Comment from './components/Comment.js'
 import Archive from './components/Archive.js'
 
+import './css/main.scss'
+
 if ( document.getElementById("bookSummary") ) {
   new Summary()
 }
