@@ -1,6 +1,6 @@
 {
   "name": "persephone",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "persephone theme js",
   "private": true,
   "scripts": {
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erlzhang/persephone.git"
+    "url": "git+https://github.com/erlzhang/jekyll-theme-persephone.git"
   },
   "keywords": [],
   "author": "Sharon Zhang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/erlzhang/persephone/issues"
+    "url": "https://github.com/erlzhang/jekyll-theme-persephone/issues"
   },
-  "homepage": "https://github.com/erlzhang/persephone#readme",
+  "homepage": "https://github.com/erlzhang/jekyll-theme-persephone#readme",
   "devDependencies": {
     "css-loader": "^3.1.0",
     "mini-css-extract-plugin": "^0.8.0",
