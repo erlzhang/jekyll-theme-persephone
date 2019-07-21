@@ -35,11 +35,7 @@ h2 {
 h3 {
   font-size: 1.33rem;
 }
-a {
-  text-decoration: none;
-  color: var(--dark);
-}
-a:hover, a:visited, a:linked, a:active {
+a, a:hover, a:visited, a:active {
   text-decoration: none;
   color: var(--dark);
 }
