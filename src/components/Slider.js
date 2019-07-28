@@ -5,9 +5,18 @@ export default class Slider {
   constructor () {
     this.slides = []
     this.controls = document.getElementsByClassName('slide__control')
+    this.loading = document.getElementById("loading")
+
+    /**
+     * Stop if there is no slides.
+     */
+    if ( this.controls.length < 1 ) {
+      this.removeLoading();
+      return;
+    }
+
     this.nextBtn = document.getElementById('nextBtn')
     this.prevBtn = document.getElementById('prevBtn')
-    this.loading = document.getElementById("loading")
 
     this.current = 0
 
@@ -20,15 +29,22 @@ export default class Slider {
 
     imagesLoaded( this.mainContainer, (instance) => {
 
-      this.loading.style.display = "none";
+      this.removeLoading()
 
       this.revealSlide()
 
       this.bindControlsEvent()
       this.bindKeyEvent()
-      //this.bindMouseEvent()
+      this.bindMouseEvent()
       this.bindTouchEvent()
     })
+  }
+
+  /**
+   * Remove the loading animation.
+   */
+  removeLoading () {
+    this.loading.style.display = "none";
   }
 
   /**
