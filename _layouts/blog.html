@@ -6,6 +6,9 @@ layout: default
 
 <main class="post__archive" id="postArchive">
   {%- include header_nav.html -%}
+  {%- if site.status -%}
+  {%- include status.html -%}
+  {%- endif -%}
 	{%- if site.categories.size > 0 -%}
   <nav class="blog__categories">
     <a href="#all" data-category="all" class="category active nav-link">{{ site.theme_setting.lang.category_all | default: "All" }}</a>

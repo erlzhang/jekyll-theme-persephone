@@ -105,6 +105,7 @@ export default class Slider {
   bindTouchEvent () {
     this.touchtimes = 0
     this.touchx = []
+
     document.addEventListener("touchstart", (event) => {
       this.touchtimes ++ ;
       this.touchx[this.touchtimes] = event.changedTouches[0].clientY;  

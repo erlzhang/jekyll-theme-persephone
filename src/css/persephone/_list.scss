@@ -103,3 +103,12 @@
 	background-size: cover;
 	background-position: 50% 50%;
 }
+.blog-status {
+  margin: 1.5rem 0 2.5rem;
+  padding: 15px 1rem;
+  background-color: var(--lighter);
+  svg {
+    float: left;
+    margin-right: 15px;
+  }
+}

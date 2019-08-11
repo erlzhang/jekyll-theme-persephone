@@ -98,5 +98,4 @@ export default class Slide {
     this.ele.style.zIndex = '5'
     this.control.classList.add("current") 
   }
-  
 }

@@ -73,7 +73,6 @@ export default class Archive {
         post.classList.add("fade")
       }
     }
-  
   }
 
   /**
