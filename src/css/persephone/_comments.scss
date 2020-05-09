@@ -202,8 +202,12 @@ textarea.form-control {
   padding: 0.5rem 0;
   p {
     color: var(--gray);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     white-space: pre-line;
+    line-height: 1.5rem;
+    img {
+      width: 35px;
+    }
   }
 }
 .comment__reply {
