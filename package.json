@@ -33,7 +33,7 @@
     "blueimp-md5": "^2.10.0",
     "gsap": "^2.0.2",
     "imagesloaded": "^4.1.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "js-cookie": "^2.2.0"
   }
 }
