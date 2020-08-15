@@ -2,6 +2,7 @@ import Slider from './components/Slider.js'
 import Summary from './components/Summary.js'
 import Comment from './components/Comment.js'
 import Archive from './components/Archive.js'
+import ContentMenu from './components/ContentMenu.js'
 
 import './css/main.scss'
 
@@ -21,6 +22,10 @@ if ( document.getElementById("commentContainer") ) {
   new Comment()
 }
 
+if ( document.querySelector(".section-nav") ) {
+  new ContentMenu()
+}
+
 initMermaid();
 
 /**
@@ -34,7 +39,7 @@ function initMermaid() {
     let content = code.innerText;
 
     let chart = document.createElement("div");
-    chart.className = "mermaid";  
+    chart.className = "mermaid";
     chart.innerHTML = content;
 
     let p = code.parentNode;

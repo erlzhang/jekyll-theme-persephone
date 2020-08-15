@@ -10,7 +10,7 @@ const MESSAGES = {
   disabled: "Enmmm..",
   error: "Something wrong!",
   enabled: "Go!",
-  sending: "Going.." 
+  sending: "Going.."
 }
 
 export default class {
@@ -19,7 +19,7 @@ export default class {
 
     this.form = document.getElementById("newComment")
 
-    this.postURL = this.form.action 
+    this.postURL = this.form.action
 
     this.nameInput = document.getElementsByName("fields[name]")[0]
     this.emailInput = document.getElementsByName("fields[email]")[0]
@@ -60,7 +60,7 @@ export default class {
       }
 
       if ( this.visitor ) {
-        this.checkVisitorInfo() 
+        this.checkVisitorInfo()
       } else {
         this.newVisitor()
       }
@@ -167,7 +167,7 @@ export default class {
    * @param {object} comment
    */
   addComment (comment) {
-    let content = this.parseComment(comment) 
+    let content = this.parseComment(comment)
     let target
 
     if ( comment.parent ) {
@@ -205,7 +205,7 @@ export default class {
     } else {
       message = comment.message
     }
-    content += '<div class="comment__content">' + message + '</div></div>'
+    content += '<div class="comment__content"><p>' + message + '</p></div></div>'
 
     div.innerHTML = content
     return div
@@ -224,7 +224,7 @@ export default class {
     } else {
       return true
     }
-  
+
   }
 
   /**
