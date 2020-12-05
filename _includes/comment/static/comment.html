@@ -26,9 +26,9 @@
    {%- capture i -%}{{ include.index }}{% endcapture -%}
    {%- assign replies = site.data.comments[page.slug] | sort | where_exp: 'comment', 'comment[1].parent == i' -%}
    {%- for reply in replies -%}
-     {%- assign index   = forloop.index | prepend: '-' | prepend: include.index -%}
-     {%- assign parent  = reply[1].parent | to_integer -%}
-		 {%- assign parent_name=name -%}
+     {%- assign index = forloop.index | prepend: '-' | prepend: include.index -%}
+     {%- assign parent_name = include.name -%}
+     {%- assign parent  = reply[1].parent -%}
      {%- assign email   = reply[1].email -%}
      {%- assign name    = reply[1].name -%}
      {%- assign url     = reply[1].url -%}
