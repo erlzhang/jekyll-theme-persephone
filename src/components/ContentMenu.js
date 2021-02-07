@@ -1,10 +1,18 @@
-export default class {
-  constructor() {
-    this.heads = []
-    this.init();
-    this._current = null;
+import Component from './Component'
 
-    window.onscroll = (e) => {
+export default class extends Component {
+  constructor() {
+    super()
+
+    this.inited = false;
+  }
+
+  canBeActive() {
+    return !!document.querySelector(".section-nav");
+  }
+
+  bindScrollEvent() {
+    this.bindEvent(window, "scroll", (e) => {
       const offset = window.scrollY;
       this.current = this.heads.find((head, index) => {
         const next = this.heads[index + 1];
@@ -15,7 +23,18 @@ export default class {
         return offset >= head.offset &&
           offset < next.offset;
       });
+    });
+  }
+
+  onPageLoad() {
+    if (!this.inited) {
+      this.bindScrollEvent();
     }
+
+    this.heads = []
+    this.init();
+    this._current = null;
+    this.inited = true;
   }
 
   set current(value) {

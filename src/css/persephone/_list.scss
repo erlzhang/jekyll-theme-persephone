@@ -20,7 +20,7 @@
   margin: 0.875rem 0;
   position: relative;
   a {
-    display: block;
+    @include flex();
     width: 100%;
     padding: 0.5rem 0;
   }

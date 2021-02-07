@@ -84,7 +84,7 @@
 .book-summary ul.summary li a:focus {
   outline: none;
 }
-.book-summary ul.summary li.active > a {
+.book-summary ul.summary li > a.active {
   color: var(--blue);
   background: transparent;
   text-decoration: none;

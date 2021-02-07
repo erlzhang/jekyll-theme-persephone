@@ -6,9 +6,9 @@
       </li>
       <li class="divider"></li>
       {%- for part in page.book.parts -%}
-      <li class="chapter {% if part.url == page.url -%}active{% endif -%}">
+      <li class="chapter">
         {%- if part.url -%}
-        <a href="{{ part.url | relative_url }}">{{ part.title }}</a>
+        <a href="{{ part.url | relative_url }}" data-turbo-frame="chapter-content" class="chapter-link {% if part.url == page.url -%}active{% endif -%}">{{ part.title }}</a>
         {%- else -%}
         <span>{{ part.title }}</span>
         {%- endif -%}
@@ -17,8 +17,8 @@
         <ul class="articles">
           {%- for part in part.parts -%}
             
-          <li class="chapter {% if part.url == page.url -%}active{% endif -%}">
-            <a href="{{ part.url | relative_url }}">{{ part.title }}</a>
+          <li class="chapter">
+            <a href="{{ part.url | relative_url }}" data-turbo-frame="chapter-content" class="chapter-link {% if part.url == page.url -%}active{% endif -%}">{{ part.title }}</a>
           </li>
           {%- endfor -%}
         </ul>

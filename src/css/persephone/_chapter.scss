@@ -115,11 +115,16 @@
   }
 }
 .chapter__inner {
+  /*
   position: relative;
+  */
   margin: 0 auto;
   padding: 1.5rem 1rem;
   max-width: var(--content-width);
   flex: 1;
+}
+.chapter__content {
+  animation: fadeIn 0.45s;
 }
 /*
     Right/Left buttons to change page

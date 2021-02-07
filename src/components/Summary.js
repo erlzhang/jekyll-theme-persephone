@@ -1,5 +1,11 @@
-export default class {
+import Component from './Component'
+
+export default class extends Component {
   constructor () {
+    super()
+  }
+
+  onPageLoad() {
     this.toggler = document.getElementById("summaryToggler")
     this.main = document.getElementById("bookMain")
     this.isOpen = false
@@ -9,6 +15,10 @@ export default class {
         this.toggle(event)
       })
     }
+  }
+
+  canBeActive() {
+    return !!document.getElementById("bookSummary");
   }
 
   /**
@@ -25,7 +35,6 @@ export default class {
       this.main.classList.add("with-summary");
       this.toggler.classList.add("active")
       this.isOpen = true;
-    }
-    
+    } 
   }
 }

@@ -1,8 +1,15 @@
 import Slide from './Slide.js'
 import imagesLoaded from 'imagesloaded'
+import Component from './Component'
 
-export default class Slider {
+export default class Slider extends Component {
   constructor () {
+    super()
+
+    this.inited = false;
+  }
+
+  init() {
     this.slides = []
     this.controls = document.getElementsByClassName('slide__control')
     this.loading = document.getElementById("loading")
@@ -26,18 +33,28 @@ export default class Slider {
 
     this.direction = true
     this.inAnimation = false
+    this.imageLoaded = false;
+
+    // 仅在第一次初始化时绑定事件
+    if (!this.inited) {
+      this.bindEvents();
+    }
 
     imagesLoaded( this.mainContainer, (instance) => {
-
       this.removeLoading()
-
       this.revealSlide()
-
-      this.bindControlsEvent()
-      this.bindKeyEvent()
-      this.bindMouseEvent()
-      this.bindTouchEvent()
+      this.imageLoaded = true;
     })
+
+    this.inited = true;
+  }
+
+  canBeActive() {
+    return !!document.getElementById("sectionContainer");
+  }
+
+  onPageLoad() {
+    this.init();
   }
 
   /**
@@ -69,11 +86,28 @@ export default class Slider {
     this.len = this.slides.length
   }
 
+  bindEvents() {
+    this.bindControlsEvent()
+    this.bindKeyEvent()
+    this.bindMouseEvent()
+    this.bindTouchEvent()
+  }
+
+  bindEvent(eventName, handler) {
+    super.bindEvent(document, eventName, (event) => {
+      if (!this.imageLoaded) {
+        return;
+      }
+
+      handler.call(this, event);
+    })
+  }
+
   /**
    * Bind top/right/bottom/left key event to animation.
    */
   bindKeyEvent () {
-    document.addEventListener("keyup", (event) => {
+    this.bindEvent("keyup", (event) => {
       if( event && ( event.keyCode == 39 || event.keyCode == 40 ) ) {
         this.direction = true
         this.changeSlide() 
@@ -89,11 +123,11 @@ export default class Slider {
    * Bind mousewheel event to show animation.
    */
   bindMouseEvent () {
-    document.addEventListener("mousewheel", (event) => {
+    this.bindEvent("mousewheel", (event) => {
       this.direction = event.wheelDelta < 0
       this.changeSlide()
     })
-    document.addEventListener("DOMMouseScroll", (event) => {
+    this.bindEvent("DOMMouseScroll", (event) => {
       this.direction = event.detail == 3  
       this.changeSlide()
     })
@@ -106,12 +140,12 @@ export default class Slider {
     this.touchtimes = 0
     this.touchx = []
 
-    document.addEventListener("touchstart", (event) => {
+    this.bindEvent("touchstart", (event) => {
       this.touchtimes ++ ;
       this.touchx[this.touchtimes] = event.changedTouches[0].clientY;  
     })
 
-    document.addEventListener("touchend", (event) => {
+    this.bindEvent("touchend", (event) => {
       this.touchtimes ++ ;
       this.touchx[this.touchtimes] = event.changedTouches[0].clientY;
 
@@ -119,7 +153,6 @@ export default class Slider {
         this.direction = this.touchx[this.touchtimes] > this.touchx[this.touchtimes - 1];
         this.changeSlide();
       }
-    
     })
   }
 

@@ -1,8 +1,17 @@
 import HoverImg from './HoverImg.js'
 import imagesLoaded from 'imagesloaded'
+import Component from './Component'
 
-export default class Archive {
+export default class Archive extends Component {
   constructor () {
+    super()
+  }
+
+  canBeActive() {
+    return !!document.getElementById("postArchive")
+  }
+
+  onPageLoad() {
     this.categories = document.getElementsByClassName("category")
     this.posts = document.getElementsByClassName("post__list_item")
 
