@@ -8,7 +8,7 @@ layout: default
       {%- include header.html -%}
       <main class="chapter__wrapper" tabindex="-1" role="main">
         <div class="chapter__inner">
-          <turbo-frame id="chapter-content">
+          <turbo-frame id="chapter-content" data-autoscroll-block="start" autoscroll>
             <article class="chapter__content content">
               {{ content | img_prefix }}
             </article>

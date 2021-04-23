@@ -8,7 +8,8 @@ export default class {
   }
 
   init() {
-    document.addEventListener("turbo:load", () => {
+    document.addEventListener("turbo:load", (e) => {
+      console.log("on turbo load", e);
       this.components.forEach(component => {
         component.active = component.canBeActive();
         if (component.active) {
@@ -16,5 +17,9 @@ export default class {
         }
       })
     });
+
+    document.addEventListener("turbo:render", (e) => {
+      console.log("on turbo render", e)
+    })
   }
 }

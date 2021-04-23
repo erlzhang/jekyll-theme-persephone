@@ -40,6 +40,9 @@ export default class Slider extends Component {
       this.bindEvents();
     }
 
+    this.bindControlsEvent()
+
+
     imagesLoaded( this.mainContainer, (instance) => {
       this.removeLoading()
       this.revealSlide()
@@ -79,7 +82,6 @@ export default class Slider extends Component {
       control.slideIndex = i
 
       this.bindEventToControl(control)
-
       i++
     }
     this.controls[this.current].classList.add("current")
@@ -87,7 +89,6 @@ export default class Slider extends Component {
   }
 
   bindEvents() {
-    this.bindControlsEvent()
     this.bindKeyEvent()
     this.bindMouseEvent()
     this.bindTouchEvent()
