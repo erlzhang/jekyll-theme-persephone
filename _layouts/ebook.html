@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>{{ page.book.title }}</h1>
+    <article>
+      {%- for part in page.book.parts -%}
+        {{ part.content | markdownify }}
+        {%- if part.parts -%}
+        {%- for p in part.parts -%}
+        {{ p.content | markdownify }}
+        {%- endfor -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </article>
+  </body>
+</html>
