@@ -229,6 +229,8 @@ export default class Slider extends Component {
     if( this.inAnimation ) {
       return
     }
+
+    this.inAnimation = true;
     this.slides[this.current].reverse()
   }
 }
