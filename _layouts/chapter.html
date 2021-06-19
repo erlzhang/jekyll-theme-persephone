@@ -9,7 +9,7 @@ layout: default
       <main class="chapter__wrapper" tabindex="-1" role="main">
         <div class="chapter__inner">
           <turbo-frame id="chapter-content" data-autoscroll-block="start" autoscroll>
-            <article class="chapter__content content">
+            <article class="chapter__content content" data-controller="chapter" data-chapter="{{ page.name }}">
               {{ content | img_prefix }}
             </article>
             {%- if page.prev -%}
