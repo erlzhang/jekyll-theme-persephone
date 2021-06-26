@@ -6,6 +6,8 @@ import Smiley from '../components/Smiley'
 import Visitor from '../models/Visitor'
 import DateTime from '../helpers/DateTime'
 
+import Component from './Component'
+
 const MESSAGES = {
   disabled: "Enmmm..",
   error: "Something wrong!",
@@ -13,8 +15,16 @@ const MESSAGES = {
   sending: "Going.."
 }
 
-export default class {
+export default class extends Component {
   constructor () {
+    super()
+  }
+
+  canBeActive() {
+    return !!document.getElementById("commentContainer")
+  }
+
+  onPageLoad() {
     this.list = document.getElementById("commentsList")
 
     this.form = document.getElementById("newComment")
@@ -75,7 +85,6 @@ export default class {
       let id = event.target.getAttribute("data-reply-id")
       this.reply(target, id)
     })
-
   }
 
   /**

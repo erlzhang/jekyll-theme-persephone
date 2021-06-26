@@ -8,23 +8,33 @@ layout: default
       {%- include header.html -%}
       <main class="chapter__wrapper" tabindex="-1" role="main">
         <div class="chapter__inner">
-          <article class="chapter__content content">
-            {{ content | img_prefix }}
-          </article>
+          <turbo-frame id="chapter-content" data-autoscroll-block="start" autoscroll>
+            <article class="chapter__content content" data-chapter="{{ page.name }}" data-title="{{ page.title }} - {{ page.book.title }} | {{site.title}}">
+              {{ content | img_prefix }}
+            </article>
+            {%- if page.prev -%}
+            {%- if page.prev == page.book -%}
+            <a href="{{ page.prev.url | relative_url }}" class="navigation navigation-prev" aria-label="Previous page: {{ page.prev.title }}" data-turbo-frame="_top">
+              {%- include icons/left.html -%}
+            </a>
+            {%- else -%}
+            <a href="{{ page.prev.url | relative_url }}" class="navigation navigation-prev" aria-label="Previous page: {{ page.prev.title }}">
+              {%- include icons/left.html -%}
+            </a>
+            {%- endif -%}
+            
+          {%- endif -%}
+          {%- if page.next -%}
+            <a href="{{ page.next.url | relative_url }}" class="navigation navigation-next" aria-label="Next page: {{ page.next.title }}">
+              {%- include icons/right.html -%}
+            </a>
+          {%- endif -%}
+        </turbo-frame>
         </div>
         {%- include footer.html -%}
       </main>
     </div>
-    {%- if page.prev -%}
-      <a href="{{ page.prev.url | relative_url }}" class="navigation navigation-prev" aria-label="Previous page: {{ page.prev.title }}">
-        {%- include icons/left.html -%}
-      </a>
-    {%- endif -%}
-    {%- if page.next -%}
-      <a href="{{ page.next.url | relative_url }}" class="navigation navigation-next" aria-label="Next page: {{ page.next.title }}">
-        {%- include icons/right.html -%}
-      </a>
-    {%- endif -%}
+    
   </div>
 </div>
 {%- if page.code -%}

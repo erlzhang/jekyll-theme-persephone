@@ -106,7 +106,6 @@
 .chapter__wrapper {
   position: relative;
   outline: none;
-  padding-top: 5rem;
   min-height: 100vh;
   @include flex();
   @include flex-column();
@@ -115,17 +114,23 @@
   }
 }
 .chapter__inner {
+  /*
   position: relative;
+  */
   margin: 0 auto;
   padding: 1.5rem 1rem;
   max-width: var(--content-width);
   flex: 1;
 }
+.chapter__content {
+  animation: fadeIn 0.45s;
+  padding-top: 5rem;
+}
 /*
     Right/Left buttons to change page
 */
 .navigation {
-  position: absolute;
+  position: fixed;
   top: 50px;
   bottom: 0;
   margin: 0;
@@ -150,6 +155,9 @@
 }
 .navigation.navigation-prev {
   left: 0;
+}
+.with-summary .navigation.navigation.navigation-prev {
+  left: 300px;
 }
 @media (max-width: 1240px) {
   .navigation {

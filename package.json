@@ -28,6 +28,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@hotwired/turbo": "^7.0.0-beta.4",
     "animejs": "^2.2.0",
     "blueimp-md5": "^2.10.0",
     "gsap": "^2.0.2",
