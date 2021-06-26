@@ -19,14 +19,14 @@ export default class extends Component {
           if (mutation.addedNodes.length > 0) {
             const child = Array.from(mutation.addedNodes).find(node => node.tagName === "ARTICLE");
             if (child) {
-              const name = child.getAttribute("data-chapter");
-              const item = document.getElementById(`chapter-${name}`);
-              if (item) {
-                item.classList.add("active");
-                this.current.classList.remove("active");
-                this.current = item;
-              }
+              this.updateState(child);
             }
+          }
+        } else if (mutation.type === "attributes" && mutation.attributeName === "src") {
+          console.log("muration", mutation)
+          const ignore = content.getAttribute("ignore");
+          if (!content.getAttribute("ignore")) {
+            this.pushState(content);
           }
         }
       }
@@ -36,11 +36,59 @@ export default class extends Component {
 
     observer.observe(content, { attributes: true, childList: true, subtree: true })
 
+    // 监听浏览器前进后退事件
+    window.addEventListener("popstate", (event) => {
+      const state = event.state;
+      if (state.chapter) {
+        const container = document.getElementById("chapter-content");
+        if (container) {
+          content.innerHTML = state.nodes;
+          content.setAttribute("ignore", true);
+          document.title = state.title;
+        } else {
+          window.location.reload()
+        }
+      }
+    })
+
     if( this.toggler ) {
       this.toggler.addEventListener("click", (event) => {
         this.toggle(event)
       })
     }
+  }
+
+  updateActiveLink(node) {
+    console.log("in update active link");
+    const name = node.getAttribute("data-chapter");
+    const item = document.getElementById(`chapter-${name}`);
+    if (item) {
+      item.classList.add("active");
+      if (this.current) {
+        this.current.classList.remove("active");
+      }
+      this.current = item;
+    }
+  }
+
+  pushState(parent) {
+    console.log("in push state")
+    const url = document.location.href;
+    const title = document.title;
+    const state = {'src': url, 'title': title, 'chapter': true, nodes: parent.innerHTML};
+    history.pushState(state, '', url)
+  }
+
+  updateState(node) {
+    console.log("in update state")
+    const parent = node.parentNode;
+    const url = parent.src;
+    const title = node.getAttribute("data-title");
+    this.updateActiveLink(node);
+    const state = {'src': url, 'title': title, 'chapter': true, nodes: parent.innerHTML};
+    history.replaceState(state, '', url)
+    //history.pushState(state, '', url)
+    document.title = title;
   }
 
   canBeActive() {

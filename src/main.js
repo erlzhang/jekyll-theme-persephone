@@ -1,5 +1,7 @@
 import * as Turbo from "@hotwired/turbo"
 
+console.log("Trubo", Turbo)
+
 import Slider from './components/Slider.js'
 import Summary from './components/Summary.js'
 import Comment from './components/Comment.js'
