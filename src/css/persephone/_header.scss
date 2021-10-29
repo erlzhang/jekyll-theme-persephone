@@ -42,13 +42,13 @@
   right: 3rem;
   left: auto;
 }
-.sidebar-right .logo h1 {
+.sidebar-right .logo img + h1 {
   left: auto;
   right: calc(30px + 1rem);
   transform: translateX(20px);
   text-align: right;
 }
-.sidebar-right .logo:hover h1 {
+.sidebar-right .logo:hover img + h1 {
   transform: none;
 }
 .sidebar__toggler span {
