@@ -30,7 +30,7 @@
   "dependencies": {
     "animejs": "^2.2.0",
     "blueimp-md5": "^2.10.0",
-    "gsap": "^2.0.2",
+    "gsap": "^3.6.0",
     "imagesloaded": "^4.1.4",
     "jquery": "^3.5.0",
     "js-cookie": "^2.2.0",
