@@ -6,7 +6,7 @@ Welcome to your new Jekyll theme! In this directory, you'll find the files you n
 
 To experiment with this code, add some sample content and run `bundle exec jekyll serve` – this directory is setup just like a Jekyll site!
 
-[DEMO with full functions.](https://erl.im)
+[DEMO with full functions.](http://demo.erl.im)
 
 [A simple blog demo](https://en.erl.im)
 
