@@ -16,11 +16,10 @@ To experiment with this code, add some sample content and run `bundle exec jekyl
 | -- | -- |
 | `layout: home` [Demo](https://en.erl.im/blog/) | `layout: blog` [Demo](https://en.erl.im/archive/) |
 | ![post layout](/screenshots/post.png) | ![page layout](/screenshots/page.png) |
-| `layout: post` [Demo](https://en.erl.im/blog/jekyll-theme-persephone.html) | `layout: page` [Demo](http://demo.erl.im/about.html) |
+| `layout: post` [Demo](https://en.erl.im/blog/jekyll-theme-persephone.html) | `layout: page` [Demo](https://jekyll-theme-persephone.netlify.app/about.html) |
 | ![archive layout](/screenshots/archive.png)      | ![slides layout](/screenshots/slides.png) |
-| `layout: archive` [Demo](http://demo.erl.im/archive.html) | <strong style="color: red">*</strong> `layout: slides` [Demo](http://demo.erl.im) |
 | ![book layout](/screenshots/book.png) | ![chapter layout](/screenshots/chapter.png) |
-| <strong style="color: red">*</strong> `layout: book` [Demo](https://demo.erl.im/corner) | <strong style="color: red">*</strong> `layout: chapter` [Demo](http://demo.erl.im/corner/1.html) |
+| <strong style="color: red">*</strong> `layout: book` [Demo](https://jekyll-theme-persephone.netlify.app/corner) | <strong style="color: red">*</strong> `layout: chapter` [Demo](https://jekyll-theme-persephone.netlify.app/corner/1.html) |
 
 The layout with red * relied on a jekyll books generator plugin: [`jekyll-books`](https://github.com/erlzhang/jekyll-books)
 
